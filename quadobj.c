@@ -2,7 +2,7 @@
 #include "quadobj.h"
 
 light_t light={
-      {6,10,15,1},   //position (the final 1 means the light is positional)
+      {6,10,15,1},   //position 
       {1,1,1,1},     //diffuse
       {0,0,0,1},     //specular
       {0.1,0.1,0.1,1}      //ambient

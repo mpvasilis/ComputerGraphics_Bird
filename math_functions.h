@@ -9,60 +9,16 @@
 
 #define PI 3.14159265
 
-/**
- * Name: normalize(float * vect)
- * Desc: Normalizes the given array (treating it like a vector).
- * Para: vect, The vector to normalize.
- * Note: Thanks http://www.gamedev.net/page/resources/_/technical/opengl/
- *       lighting-and-normals-r1682 for helping out with this + lighting.
-**/
 void linalg_normalize(float * vect);
 
-/**
- * Name: crossProduct(float *c,float a[3], float b[3])
- * Desc: Finds the cross product of the two given vectors.
- * Para: c, The array to store the cross product into.
- *       a, The first vector. Will find cross product with b.
- *       b, The second vector Will find cross product with a.
- * Note: Thanks http://www.gamedev.net/page/resources/_/technical/opengl/
- *       lighting-and-normals-r1682 for helping out with this + lighting.
-**/
 void linalg_crossProduct(float *c, float a[3], float b[3]);
 
-/**
- * Name: linalg_calcPitch(PhysicsVector * from, PhysicsVector * to)
- * Desc: Calculate the pitch necessary to rotate the from vector to
- *       the to vector.
- * Para: from, The vector to start at.
- *       to, The vector to end at.
-**/
 float linalg_calcPitch(PhysicsVector * from, PhysicsVector * to);
 
-/**
- * Name: linalg_calcYaw(PhysicsVector * from, PhysicsVector * to)
- * Desc: Calculate the yaw necessary to rotate the from vector to
- *       the to vector.
- * Para: from, The vector to start at.
- *       to, The vector to end at.
-**/
 float linalg_calcYaw(PhysicsVector * from, PhysicsVector * to);
 
-/**
- * Name: linalg_calcPitch(PhysicsVector * from, PhysicsVector * to)
- * Desc: Calculate the pitch necessary to rotate the from vector to
- *       the to vector in degrees.
- * Para: from, The vector to start at.
- *       to, The vector to end at.
-**/
 float linalg_calcPitchDeg(PhysicsVector * from, PhysicsVector * to);
 
-/**
- * Name: linalg_calcYaw(PhysicsVector * from, PhysicsVector * to)
- * Desc: Calculate the yaw necessary to rotate the from vector to
- *       the to vector in degrees.
- * Para: from, The vector to start at.
- *       to, The vector to end at.
-**/
 float linalg_calcYawDeg(PhysicsVector * from, PhysicsVector * to);
 
 #endif

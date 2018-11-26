@@ -23,7 +23,6 @@ void Bird_physics_initFull(Bird_physics * bird_physics, float x, float y, float 
  
 }
 
-
 void Bird_physics_setPos(Bird_physics * bird_physics, float x, float y, float z)
 {
     bird_physics->physicsObject.position.x = x;
