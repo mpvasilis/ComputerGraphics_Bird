@@ -220,35 +220,25 @@ int main(int argc,char* argv[])
 
     int i=1;
 
-    // Initialize GLUT and process user parameters
     glutInit(&argc,argv);
 
-    // Request double buffered, true color window with Z buffering
     glutInitDisplayMode(GLUT_RGB | GLUT_DEPTH | GLUT_DOUBLE);
    
-    // Request window
     glutInitWindowSize(WIDTH, HEIGHT);
     lastWidth = WIDTH;
     lastHeight = HEIGHT;
    
-    // Create the window
     glutCreateWindow(WINDOW_TITLE);
 
-    // Enable face culling
     glEnable(GL_CULL_FACE);
 
-    // Enable depth testing
     glEnable(GL_DEPTH_TEST);
-
-
 
 	Bird_physics_init(&bird_physics, 0, 0, 0);
 	bird_initBird(&bird, &bird_physics);
 	bird_setParams(&bird);
 
-
-	// Set up lighting
-	glShadeModel(GL_SMOOTH); // Smooth shading
+	glShadeModel(GL_SMOOTH); 
 	glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
@@ -262,18 +252,13 @@ int main(int argc,char* argv[])
 
 	glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
  
-    // Set up perspective
 	setCameraPerspective();
 
-    // Tell GLUT to call "display" when the scene should be drawn
     glutDisplayFunc(display);
 
-    // Register callback for resizing window
     glutReshapeFunc(handleReshape);
 
-    // Register callback for animation
     glutTimerFunc(25,animate,0);
-
 
 	glutCreateMenu(MenuSelect);
 	glutAddMenuEntry("Start Animation", 1);
@@ -281,11 +266,8 @@ int main(int argc,char* argv[])
 	glutAddMenuEntry("Change Camera", 3);
 	glutAddMenuEntry("Exit", 4);
 
-
-	// attach the menu to the right button
 	glutAttachMenu(GLUT_RIGHT_BUTTON);
 
-    // Pass control to GLUT so it can interact with the user
-    glutMainLoop();
+	glutMainLoop();
     return 0;
 }

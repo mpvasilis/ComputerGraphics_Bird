@@ -43,9 +43,7 @@ typedef struct
     int maxX;
     int maxY;
     int maxZ;
-    float seperationWeight;
-    float alignWeight;
-    float cohesionWeight;
+
 } Bird_physics;
 
 void Bird_physics_init(Bird_physics * bird_physics, float x, float y, float z);
