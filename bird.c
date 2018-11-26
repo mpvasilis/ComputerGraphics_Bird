@@ -1,6 +1,6 @@
 #include "bird.h"
 
-void bird_initBird(Bird * birdPtr, Boid * boidPtr)
+void bird_initBird(Bird * birdPtr, Bird_physics * bird_physics_ptr)
 {
 	printf("Initializing Bird...\n");
     int i;
@@ -123,7 +123,7 @@ void bird_initBird(Bird * birdPtr, Boid * boidPtr)
         );
     }
 
-   birdPtr->boid = boidPtr;
+   birdPtr->bird_physics = bird_physics_ptr;
    printf("Bird Initialization Finished!\n");
 
 }
@@ -199,8 +199,8 @@ void bird_setParams(Bird * birdPtr)
 	birdPtr->quadObject.yScale = BIRD_SCALE;
 	birdPtr->quadObject.zScale = BIRD_SCALE;
 	birdPtr->quadObject.curRoll = 20;
-    Boid_setPos(birdPtr->boid, x, y, z);
-	Boid_setVel(birdPtr->boid, 0, 5, 0);
+    Bird_physics_setPos(birdPtr->bird_physics, x, y, z);
+	Bird_physics_setVel(birdPtr->bird_physics, 0, 5, 0);
 }
 
 void bird_flap(Bird * birdPtr)
@@ -926,7 +926,7 @@ void bird_draw(Bird * birdPtr)
     quadobject_draw(&birdPtr->quadObject);
 }
 
-void bird_step(Bird * birdPtr, Boid * boids, int totalBirds, 
+void bird_step(Bird * birdPtr, Bird_physics * bird_physics, int totalBirds,
     float timestep)
 {
 	PhysicsVector from;
@@ -936,12 +936,12 @@ void bird_step(Bird * birdPtr, Boid * boids, int totalBirds,
 	extern int animate_bird;
 	if (animate_bird == TRUE){
 
-    Boid_step(birdPtr->boid, boids, totalBirds,timestep, FALSE);
-    birdPtr->quadObject.curX = Boid_getX(birdPtr->boid);
-    birdPtr->quadObject.curY = Boid_getY(birdPtr->boid);
-    birdPtr->quadObject.curZ = Boid_getZ(birdPtr->boid);
+    Bird_physics_step(birdPtr->bird_physics, bird_physics, totalBirds,timestep, FALSE);
+    birdPtr->quadObject.curX = Bird_physics_getX(birdPtr->bird_physics);
+    birdPtr->quadObject.curY = Bird_physics_getY(birdPtr->bird_physics);
+    birdPtr->quadObject.curZ = Bird_physics_getZ(birdPtr->bird_physics);
     birdPtr->quadObject.curPitch = linalg_calcPitchDeg(&from,
-        &(birdPtr->boid->heading));
+        &(birdPtr->bird_physics->heading));
 	
  bird_flap(birdPtr);
 	}

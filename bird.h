@@ -77,7 +77,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "flocking/boid.h"
+#include "flocking/bird_physics.h"
 
 #include "quadobj.h"
 
@@ -114,7 +114,7 @@ typedef struct
     int startWingQuadIndex;
     int endWingQuadIndex;
 
-    Boid * boid;
+    Bird_physics * bird_physics;
 
 } Bird;
 
@@ -124,7 +124,7 @@ typedef struct
  * Para: birdPtr, The bird struct to initalize.
  *       boidPtr, Boid defining flocking behavior of this bird.
 **/
-void bird_initBird(Bird * birdPtr, Boid * boidPtr);
+void bird_initBird(Bird * birdPtr, Bird_physics * bird_physics_ptr);
 
 /**
  * Name: bird_initBirdModel(Bird * birdModelPtr)
@@ -166,7 +166,7 @@ void bird_animate(Bird * birdPtr);
  *          bird's position (how long to pretend it has been since this was
  *          last called).
 **/
-void bird_step(Bird * birdPtr, Boid * boids, int totalBoids,
+void bird_step(Bird * birdPtr, Bird_physics * bird_physics, int totalBoids,
    float timestep);
 
 void bird_setParams(Bird * birdPtr);

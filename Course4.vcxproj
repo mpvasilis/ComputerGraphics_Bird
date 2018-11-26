@@ -12,7 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bird.c" />
-    <ClCompile Include="flocking\boid.c" />
+    <ClCompile Include="flocking\bird_physics.c" />
     <ClCompile Include="flocking\physics.c" />
     <ClCompile Include="visuals.c" />
     <ClCompile Include="math_functions.c" />
@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bird.h" />
-    <ClInclude Include="flocking\boid.h" />
+    <ClInclude Include="flocking\bird_physics.h" />
     <ClInclude Include="flocking\physics.h" />
     <ClInclude Include="math_functions.h" />
     <ClInclude Include="quadobj.h" />

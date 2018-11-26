@@ -82,9 +82,33 @@ void display()
     glTranslatef(0,-100,10);
 
 
-	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse_0);
-	glLightfv(GL_LIGHT0, GL_AMBIENT, ambient_0);
-	glLightfv(GL_LIGHT0, GL_SPECULAR, specular_0);
+	glEnable(GL_CULL_FACE);
+
+	glShadeModel(GL_SMOOTH);
+
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LEQUAL);
+	glClearDepth(1.0);
+
+
+	//Set up light source
+	GLfloat ambientLight[] = { 0.2, 0.2, 0.2, 1.0 };
+	GLfloat diffuseLight[] = { 0.8, 0.8, 0.8, 1.0 };
+	GLfloat lightPos[] = { -20.0, 20.0, 150.0, 1.0 };
+
+	glLightfv(GL_LIGHT0, GL_AMBIENT, ambientLight);
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuseLight);
+	glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
+
+
+	// polygon rendering mode and material properties
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+	glEnable(GL_COLOR_MATERIAL);
+	glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
+
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
 
 
 	// Set materials
@@ -114,9 +138,7 @@ void display()
 
 void animate()
 {
-	bird_step(&bird, &boids, 1, 1);
-
-	//bird_animate(&bird);
+	bird_step(&bird, &bird_physics, 1, 1);
 
     glutPostRedisplay();
     glutTimerFunc(UPDATE_FREQUENCY, animate, 0);
@@ -220,8 +242,8 @@ int main(int argc,char* argv[])
 
 
 
-	Boid_init(&boids, 0, 0, 0);
-	bird_initBird(&bird, &boids);
+	Bird_physics_init(&bird_physics, 0, 0, 0);
+	bird_initBird(&bird, &bird_physics);
 	bird_setParams(&bird);
 
 
