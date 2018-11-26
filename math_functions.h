@@ -5,7 +5,7 @@
 
 #include <math.h>
 
-#include "flocking/physics.h"
+#include "physics.h"
 
 #define PI 3.14159265
 

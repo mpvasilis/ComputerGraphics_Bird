@@ -77,7 +77,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "flocking/bird_physics.h"
+#include "bird_physics.h"
 
 #include "quadobj.h"
 

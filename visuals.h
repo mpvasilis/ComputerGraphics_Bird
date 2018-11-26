@@ -4,7 +4,7 @@
 #include <stdarg.h>
 #include <math.h>
 
-#include "flocking/physics.h"
+#include "physics.h"
 
 #ifndef OPEN_GL_LOADED
 #define OPEN_GL_LOADED
