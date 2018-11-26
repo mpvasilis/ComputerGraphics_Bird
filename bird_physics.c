@@ -36,7 +36,6 @@ void Bird_physics_step(Bird_physics * bird_physics, Bird_physics * bird_physicss
 
     Bird_physics_updatePosition(bird_physics, timestep);
 
-    // Reset acceleration for next sum of forces
     acceleration = &(bird_physics->physicsObject.acceleration);
     acceleration->x = 0;
     acceleration->y = 0;
@@ -52,17 +51,13 @@ void Bird_physics_updatePosition(Bird_physics * bird_physics, float timestep)
     PhysicsObject * physicsObject = &(bird_physics->physicsObject);
     PhysicsVector * velocity;
 
-    // Apply acceleration to velocity
-    PhysicsObject_updateVelocity(physicsObject, timestep);
+	PhysicsObject_updateVelocity(physicsObject, timestep);
 
-    // Limit velocity
     velocity = &(physicsObject->velocity);
     PhysicsVector_limit(velocity, velocity, bird_physics->maxSpeed);
 
-    // Apply velocity to position
     PhysicsObject_updatePosition(physicsObject, timestep);
 
-    // Wrap on borders
     Bird_physics_wrapOnBorders(bird_physics);
 }
 

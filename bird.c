@@ -945,8 +945,5 @@ void bird_step(Bird * birdPtr, Bird_physics * bird_physics, int totalBirds,
 	
  bird_flap(birdPtr);
 	}
-   // if(rand() % 500 <= 1 && birdPtr->flapping == NOT_FLAPPING)
-    //{
-     //   bird_flap(birdPtr);
-   // }
+  
 }
