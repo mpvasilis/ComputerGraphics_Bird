@@ -53,9 +53,7 @@ void Bird_physics_setPos(Bird_physics * bird_physics, float x, float y, float z)
 void Bird_physics_initFull(Bird_physics * bird_physics, float x, float y, float z, int minX, int minY,
     int minZ, int maxX, int maxY, int maxZ);
 
-void Bird_physics_step(Bird_physics * bird_physics, Bird_physics * bird_physicss, int numBoids,
-     float timestep,
-    char ignoreSight);
+void Bird_physics_step(Bird_physics * bird_physics, float timestep);
 
 void Bird_physics_updatePosition(Bird_physics * bird_physics, float timestep);
 

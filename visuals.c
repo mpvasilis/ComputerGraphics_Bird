@@ -101,7 +101,6 @@ void display()
 	glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
 
 
-	// polygon rendering mode and material properties
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
 	glEnable(GL_COLOR_MATERIAL);
@@ -111,7 +110,6 @@ void display()
 	glEnable(GL_LIGHT0);
 
 
-	// Set materials
 	float emission_material[4] = { 0,0,0,1 };
 	float specular_material[4] = { 0.2,0.2,0.2,1.0 };
 	float ambient_material[4] = { 0.1,0.1,0.1,1.0 };
@@ -138,7 +136,7 @@ void display()
 
 void animate()
 {
-	bird_step(&bird, &bird_physics, 1, 1);
+	bird_step(&bird, &bird_physics, 1);
 
     glutPostRedisplay();
     glutTimerFunc(UPDATE_FREQUENCY, animate, 0);

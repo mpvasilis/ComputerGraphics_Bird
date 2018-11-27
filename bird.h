@@ -124,7 +124,7 @@ void bird_flap(Bird * birdPtr);
 
 void bird_animate(Bird * birdPtr);
 
-void bird_step(Bird * birdPtr, Bird_physics * bird_physics, int totalBoids, float timestep);
+void bird_step(Bird * birdPtr, Bird_physics * bird_physics, float timestep);
 
 void bird_setParams(Bird * birdPtr);
 

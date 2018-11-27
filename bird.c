@@ -926,8 +926,7 @@ void bird_draw(Bird * birdPtr)
     quadobject_draw(&birdPtr->quadObject);
 }
 
-void bird_step(Bird * birdPtr, Bird_physics * bird_physics, int totalBirds,
-    float timestep)
+void bird_step(Bird * birdPtr, Bird_physics * bird_physics, float timestep)
 {
 	PhysicsVector from;
 
@@ -936,7 +935,7 @@ void bird_step(Bird * birdPtr, Bird_physics * bird_physics, int totalBirds,
 	extern int animate_bird;
 	if (animate_bird == TRUE){
 
-    Bird_physics_step(birdPtr->bird_physics, bird_physics, totalBirds,timestep, FALSE);
+    Bird_physics_step(birdPtr->bird_physics,timestep);
     birdPtr->quadObject.curX = Bird_physics_getX(birdPtr->bird_physics);
     birdPtr->quadObject.curY = Bird_physics_getY(birdPtr->bird_physics);
     birdPtr->quadObject.curZ = Bird_physics_getZ(birdPtr->bird_physics);

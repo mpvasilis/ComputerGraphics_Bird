@@ -30,7 +30,7 @@ void Bird_physics_setPos(Bird_physics * bird_physics, float x, float y, float z)
     bird_physics->physicsObject.position.z = z;
 }
 
-void Bird_physics_step(Bird_physics * bird_physics, Bird_physics * bird_physicss, int numBoids,float timestep, char ignoreSight)
+void Bird_physics_step(Bird_physics * bird_physics, float timestep)
 {
     PhysicsVector * acceleration;
 
